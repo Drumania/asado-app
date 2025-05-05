@@ -3,50 +3,50 @@
     {
       "nombre": "Chorizo",
       "fuego": "medio",
-      "tiempo": "20 - 25 min de cada lado",
-      "tips": "No pinchar. Dejar espacio para airear, intercalarlas cuando las giramos",
+      "tiempo": "40 min",
+      "tips": "20 - 25 min de cada lado, No pinchar. Dejar espacio para airear, intercalarlas cuando las giramos",
       "imagen": "chorizo.png"
     },
     {
       "nombre": "Morcilla",
       "fuego": "bajo",
-      "tiempo": "15 - 20 min de cada lado",
-      "tips": "Dejar espacio para airear, alejado, intercalarlas cuando las giramos",
+      "tiempo": "30 min",
+      "tips": "15 - 20 min de cada lado, Dejar espacio para airear, alejado, intercalarlas cuando las giramos",
       "imagen": "morcilla.png"
     },
     {
       "nombre": "Salchicha parrillera",
       "fuego": "bajo",
-      "tiempo": "10 - 15 min de cada lado",
-      "tips": "Dejar espacio para airear, intercalarlas cuando las giramos",
+      "tiempo": "30 min",
+      "tips": "10 - 15 min de cada lado, Dejar espacio para airear, intercalarlas cuando las giramos",
       "imagen": "salchicha-parrillera.png"
     },
     {
       "nombre": "Mollejas corazón",
       "fuego": "medio",
-      "tiempo": "25 min de cada lado",
-      "tips": "Más grasosa y más cremosa - Salar, poner limón cuando la giramos",
+      "tiempo": "50 min",
+      "tips": "25 min de cada lado. Más grasosa y más cremosa - Salar, poner limón cuando la giramos",
       "imagen": "mollejas-corazon.png"
     },
     {
       "nombre": "Mollejas de garganta",
       "fuego": "medio",
-      "tiempo": "25 min de cada lado",
-      "tips": "Marinar con leche o caldo. Salar, poner limón cuando la giramos",
+      "tiempo": "50 min",
+      "tips": "25 min de cada lado. Marinar con leche o caldo. Salar, poner limón cuando la giramos",
       "imagen": "mollejas-de-garganta.png"
     },
     {
       "nombre": "Riñón",
       "fuego": "alto",
-      "tiempo": "9 min de cada lado",
-      "tips": "Marinar en agua y vinagre o vino blanco 2 hs, retirar la tela y la grasa dura, cortar en rodajas, hacerlo a la plancha, previamente enmantecada",
+      "tiempo": "20 min",
+      "tips": "10 min de cada lado. Marinar en agua y vinagre o vino blanco 2 hs, retirar la tela y la grasa dura, cortar en rodajas, hacerlo a la plancha, previamente enmantecada",
       "imagen": "rinon.png"
     },
     {
       "nombre": "Chinchulines",
       "fuego": "alto",
-      "tiempo": "25 min de un lado, 15 - 20 min del otro",
-      "tips": "Que sean rosados, no verdes ni negros. Retirarle un poco de grasa y cortarlos en orejas. Ponerle limón en la mesa",
+      "tiempo": "40 min",
+      "tips": "25 min de un lado, 20 min del otro. Que sean rosados, no verdes ni negros. Retirarle un poco de grasa y cortarlos en orejas. Ponerle limón en la mesa",
       "imagen": "chinchulines.png"
     }
   ],
@@ -109,29 +109,29 @@
     {
       "nombre": "Entraña",
       "fuego": "alto",
-      "tiempo": "6 min de cada lado",
-      "tips": "Cortar la parte dura, sacar la grasa, sal y pimienta",
+      "tiempo": "12 min",
+      "tips": "6 min de cada lado Cortar la parte dura, sacar la grasa, sal y pimienta",
       "imagen": "entrana.png"
     },
     {
       "nombre": "Matambre de cerdo",
       "fuego": "alto",
-      "tiempo": "10 min de un lado, 8 min del otro",
-      "tips": "Si es de res hay que tiernizarlo. No tocarlo en la parrilla, que se ablande solo",
+      "tiempo": "18 min",
+      "tips": "10 min de un lado, 8 min del otro. Si es de res hay que tiernizarlo. No tocarlo en la parrilla, que se ablande solo",
       "imagen": "matambre-de-cerdo.png"
     },
     {
       "nombre": "Bife angosto o de chorizo",
       "fuego": "alto",
-      "tiempo": "5 min del lado de grasa, 6 - 10 min de cada lado",
-      "tips": "Cortarlo cada 3 dedos, dorar la parte de la grasa y después de cada lado, dejarlo reposar 5 min (con salsa criolla)",
+      "tiempo": "15 min",
+      "tips": "5 min del lado de grasa, 6 - 10 min de cada lado Cortarlo cada 3 dedos, dorar la parte de la grasa y después de cada lado, dejarlo reposar 5 min (con salsa criolla)",
       "imagen": "bife-angosto-o-de-chorizo.png"
     },
     {
       "nombre": "Provoleta",
       "fuego": "alto",
-      "tiempo": "5 min + 5 min después del reposo",
-      "tips": "Precalentar la provoletera, retirarla, dejarla reposar 5 min afuera del fuego, volver a ponerla 5 min más, tirarle orégano y ají molido",
+      "tiempo": "15 min",
+      "tips": "5 min, reposo 5 min 5 min mas al fguego. Precalentar la provoletera, retirarla, dejarla reposar 5 min afuera del fuego, volver a ponerla 5 min más, tirarle orégano y ají molido",
       "imagen": "provoleta.png"
     }
   ]
