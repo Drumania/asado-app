@@ -5,7 +5,7 @@ export default function AsadoItem({ item }) {
     <div className="row align-items-center py-3 asado-item">
       <div className="col-12 col-lg-3 text-center">
         <img
-          src={`/src/assets/img/${item.imagen}`}
+          src={`/img/${item.imagen}`}
           alt={item.nombre}
           className="asado-img"
         />
