@@ -42,7 +42,7 @@ export default function AsadoItem({ item }) {
 
       <div className="col-12 col-lg-3 text-center">
         <img
-          src={`/src/assets/img/fuego-${tipoFuego}.png`}
+          src={`/img/fuego-${tipoFuego}.png`}
           alt={item.fuego}
           style={{ maxHeight: "140px" }}
         />
