@@ -1,0 +1,138 @@
+{
+  "achuras": [
+    {
+      "nombre": "Chorizo",
+      "fuego": "medio",
+      "tiempo": "20 - 25 min de cada lado",
+      "tips": "No pinchar. Dejar espacio para airear, intercalarlas cuando las giramos",
+      "imagen": "chorizo.png"
+    },
+    {
+      "nombre": "Morcilla",
+      "fuego": "bajo",
+      "tiempo": "15 - 20 min de cada lado",
+      "tips": "Dejar espacio para airear, alejado, intercalarlas cuando las giramos",
+      "imagen": "morcilla.png"
+    },
+    {
+      "nombre": "Salchicha parrillera",
+      "fuego": "bajo",
+      "tiempo": "10 - 15 min de cada lado",
+      "tips": "Dejar espacio para airear, intercalarlas cuando las giramos",
+      "imagen": "salchicha-parrillera.png"
+    },
+    {
+      "nombre": "Mollejas corazón",
+      "fuego": "medio",
+      "tiempo": "25 min de cada lado",
+      "tips": "Más grasosa y más cremosa - Salar, poner limón cuando la giramos",
+      "imagen": "mollejas-corazon.png"
+    },
+    {
+      "nombre": "Mollejas de garganta",
+      "fuego": "medio",
+      "tiempo": "25 min de cada lado",
+      "tips": "Marinar con leche o caldo. Salar, poner limón cuando la giramos",
+      "imagen": "mollejas-de-garganta.png"
+    },
+    {
+      "nombre": "Riñón",
+      "fuego": "alto",
+      "tiempo": "9 min de cada lado",
+      "tips": "Marinar en agua y vinagre o vino blanco 2 hs, retirar la tela y la grasa dura, cortar en rodajas, hacerlo a la plancha, previamente enmantecada",
+      "imagen": "rinon.png"
+    },
+    {
+      "nombre": "Chinchulines",
+      "fuego": "alto",
+      "tiempo": "25 min de un lado, 15 - 20 min del otro",
+      "tips": "Que sean rosados, no verdes ni negros. Retirarle un poco de grasa y cortarlos en orejas. Ponerle limón en la mesa",
+      "imagen": "chinchulines.png"
+    }
+  ],
+  "coccion_lenta": [
+    {
+      "nombre": "Costillar",
+      "fuego": "indirecto",
+      "tiempo": "4 hs",
+      "pasos": [
+        "Salar antes de meter en la parrilla, dejar reposar 30 min",
+        "Cocinar con fuego indirecto del lado del hueso",
+        "Poner un leño abajo",
+        "Tapar el costillar",
+        "Cocinar por 3/4 hs, controlando el fuego",
+        "Dar vuelta, sacar el leño y poner ceniza",
+        "30 / 50 min"
+      ],
+      "imagen": "costillar.png"
+    },
+    {
+      "nombre": "Vacio",
+      "fuego": "indirecto",
+      "tiempo": "2.30 hs",
+      "pasos": [
+        "Sal y pimienta, antes de meter en la parrilla, dejar reposar 30 min",
+        "Cocinar con fuego indirecto del lado de la grasa",
+        "Poner un leño abajo",
+        "Taparlo",
+        "Cocinar por 1.30 / 2 hs, controlando el fuego",
+        "Darlo vuelta 30 min más, taparlo",
+        "Dejar reposar afuera un rato, para no perder el jugo"
+      ],
+      "imagen": "vacio.png"
+    },
+    {
+      "nombre": "Bife ancho o Ojo de bife",
+      "fuego": "medio",
+      "tiempo": "1.30 hs",
+      "pasos": [
+        "Sal de ambos lados, antes de meter en la parrilla, dejar reposar 20 min",
+        "Cocinar por 30 / 35 min, girarlo, 20 / 30 min",
+        "Dejar reposar, 30 min"
+      ],
+      "imagen": "bife-ancho-o-ojo-de-bife.png"
+    },
+    {
+      "nombre": "Picaña o Tapa de cuadril",
+      "fuego": "medio",
+      "tiempo": "1.30 hs",
+      "pasos": [
+        "Marcar cuadrícula en los 2 lados",
+        "Sal y pimienta de ambos lados, dejar reposar 15 min",
+        "Cocinar por 30 / 40 min, girarlo, 15 / 20 min",
+        "Dejar reposar, 20 / 30 min"
+      ],
+      "imagen": "picana-o-tapa-de-cuadril.png"
+    }
+  ],
+  "coccion_rapida": [
+    {
+      "nombre": "Entraña",
+      "fuego": "alto",
+      "tiempo": "6 min de cada lado",
+      "tips": "Cortar la parte dura, sacar la grasa, sal y pimienta",
+      "imagen": "entrana.png"
+    },
+    {
+      "nombre": "Matambre de cerdo",
+      "fuego": "alto",
+      "tiempo": "10 min de un lado, 8 min del otro",
+      "tips": "Si es de res hay que tiernizarlo. No tocarlo en la parrilla, que se ablande solo",
+      "imagen": "matambre-de-cerdo.png"
+    },
+    {
+      "nombre": "Bife angosto o de chorizo",
+      "fuego": "alto",
+      "tiempo": "5 min del lado de grasa, 6 - 10 min de cada lado",
+      "tips": "Cortarlo cada 3 dedos, dorar la parte de la grasa y después de cada lado, dejarlo reposar 5 min (con salsa criolla)",
+      "imagen": "bife-angosto-o-de-chorizo.png"
+    },
+    {
+      "nombre": "Provoleta",
+      "fuego": "alto",
+      "tiempo": "5 min + 5 min después del reposo",
+      "tips": "Precalentar la provoletera, retirarla, dejarla reposar 5 min afuera del fuego, volver a ponerla 5 min más, tirarle orégano y ají molido",
+      "imagen": "provoleta.png"
+    }
+  ]
+}
