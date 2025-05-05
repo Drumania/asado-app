@@ -155,5 +155,7 @@ h1 {
 @media (max-width: 576px) {
   .custom-tabs .ct-nav-item {
     font-size: 1.1rem;
+    line-height: 120%;
+    padding: 10px 0;
   }
 }
