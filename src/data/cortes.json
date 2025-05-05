@@ -1,5 +1,10 @@
 {
-  "verduras": [],
+  "verduras": [
+    {
+      "proximamente": true,
+      "mensaje": "Próximamente vas a encontrar recetas con verduras"
+    }
+  ],
   "achuras": [
     {
       "nombre": "Chorizo",

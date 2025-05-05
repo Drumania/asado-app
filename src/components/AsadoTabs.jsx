@@ -5,7 +5,14 @@ import AsadoItem from "./AsadoItem";
 export default function AsadoTabs() {
   const [activeTab, setActiveTab] = useState("achuras");
 
-  const renderItems = (items) => {
+  const isTabDisabled = (tab) => {
+    const items = cortesData[tab];
+    return !items || items.length === 0 || items[0].proximamente;
+  };
+
+  const renderItems = (items, tab) => {
+    if (!items || items.length === 0) return null;
+
     return items.map((item, i) => <AsadoItem key={i} item={item} />);
   };
 
@@ -40,6 +47,27 @@ export default function AsadoTabs() {
             onClick={() => setActiveTab("coccion_lenta")}
           >
             Cocción Lenta
+          </button>
+        </li>
+        <li className="ct-nav-item text-muted">
+          <button
+            className={`nav-link position-relative ${
+              activeTab === "verduras" ? "active" : ""
+            }`}
+            onClick={() =>
+              !isTabDisabled("verduras") && setActiveTab("verduras")
+            }
+            disabled={isTabDisabled("verduras")}
+          >
+            Verduras
+            {isTabDisabled("verduras") && (
+              <span
+                className="badge bg-danger prox"
+                style={{ fontSize: "0.6rem" }}
+              >
+                Próx.
+              </span>
+            )}
           </button>
         </li>
       </ul>
