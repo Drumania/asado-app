@@ -49,7 +49,7 @@ export default function Navbar() {
                   "nav-link" + (isActive ? " active" : "")
                 }
               >
-                Cortes
+                Como preparar
               </NavLink>
             </li>
 

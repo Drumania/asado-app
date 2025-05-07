@@ -107,6 +107,18 @@ h1 {
   }
 }
 
+.cs-badge {
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  color: #830f0f;
+  background: transparent;
+  padding: 1px 8px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .asado-item {
   margin-bottom: 1rem;
   border-bottom: 2px dashed var(--black-color);
@@ -265,4 +277,22 @@ h1 {
 
 .custom-checkbox input[type="checkbox"]:checked::before {
   opacity: 1;
+}
+
+.cs-btn-rounded {
+  border: 1px solid var(--black-color);
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+}
+
+.cs-input-number {
+  height: 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  width: 40px;
+  background-color: transparent;
+  border: none;
 }

@@ -38,15 +38,13 @@ export default function Cortes() {
                 className={
                   "nav-link d-flex align-items-center" +
                   (active === key ? " active" : "") +
-                  (!hasContent ? " disabled" : "")
+                  (!hasContent ? " disabled position-relative" : "")
                 }
                 onClick={() => hasContent && setActive(key)}
                 type="button"
               >
                 {label}
-                {!hasContent && (
-                  <span className="badge bg-secondary ms-2">Próx.</span>
-                )}
+                {!hasContent && <span className="cs-badge">Próx.</span>}
               </button>
             </li>
           );

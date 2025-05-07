@@ -47,27 +47,23 @@ export default function Fire() {
   return (
     <section className="container py-4">
       <h1 className="text-center text-uppercase mb-4">Tipos de Fuego</h1>
-      <div className="table-responsive">
-        <table className="table align-middle">
-          <tbody>
-            {fireTypes.map((fuego) => (
-              <tr key={fuego.id}>
-                <td style={{ width: "160px" }}>
-                  <img
-                    src={fuego.img}
-                    alt={fuego.title}
-                    className="img-fluid rounded shadow-sm"
-                  />
-                </td>
-                <td>
-                  <h5 className="mb-1">{fuego.title}</h5>
-                  <p className="mb-0 text-muted">{fuego.desc}</p>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {fireTypes.map((fuego) => (
+        <div
+          key={fuego.id}
+          className="d-flex cs-border-bottom-dashed pb-3 mb-3"
+        >
+          <img
+            src={fuego.img}
+            alt={fuego.title}
+            style={{ width: "100px" }}
+            className="img-fluid rounded me-2"
+          />
+          <div>
+            <h5 className="mb-1">{fuego.title}</h5>
+            <p className="mb-0 text-muted">{fuego.desc}</p>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

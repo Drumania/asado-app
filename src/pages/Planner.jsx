@@ -42,27 +42,16 @@ export default function Planner() {
 
   return (
     <section className="container py-4">
-      <h1
-        className="text-center text-uppercase mb-4"
-        style={{
-          fontSize: "clamp(2rem, 10vw, 12vw)",
-          whiteSpace: "nowrap",
-          lineHeight: 1.1,
-          width: "100%",
-          margin: "0 auto",
-        }}
-      >
-        Calculador de Asado
-      </h1>
+      <h1 className="pb-4">Calculador de Asado</h1>
 
-      <div className="row g-3 mb-4">
+      <div className="row g-3 mb-5">
         <div className="col-6">
           <label className="form-label d-flex align-items-center gap-2">
             👤 Adultos
           </label>
-          <div className="input-group">
+          <div className="d-flex">
             <button
-              className="btn btn-outline-secondary"
+              className="cs-btn-rounded"
               type="button"
               onClick={() => setAdultos(Math.max(0, adultos - 1))}
             >
@@ -70,13 +59,13 @@ export default function Planner() {
             </button>
             <input
               type="number"
-              className="form-control text-center"
+              className="cs-input-number"
               value={adultos}
               min={0}
               onChange={(e) => setAdultos(+e.target.value)}
             />
             <button
-              className="btn btn-outline-secondary"
+              className="cs-btn-rounded"
               type="button"
               onClick={() => setAdultos(adultos + 1)}
             >
@@ -87,11 +76,14 @@ export default function Planner() {
 
         <div className="col-6">
           <label className="form-label d-flex align-items-center gap-2">
-            🧒 Niños
+            <span style={{ transform: "scale(0.8)", display: "inline-block" }}>
+              👤
+            </span>{" "}
+            Niños
           </label>
-          <div className="input-group">
+          <div className="d-flex">
             <button
-              className="btn btn-outline-secondary"
+              className="cs-btn-rounded"
               type="button"
               onClick={() => setNinos(Math.max(0, ninos - 1))}
             >
@@ -99,13 +91,13 @@ export default function Planner() {
             </button>
             <input
               type="number"
-              className="form-control text-center"
+              className="cs-input-number"
               value={ninos}
               min={0}
               onChange={(e) => setNinos(+e.target.value)}
             />
             <button
-              className="btn btn-outline-secondary"
+              className="cs-btn-rounded"
               type="button"
               onClick={() => setNinos(ninos + 1)}
             >
@@ -115,10 +107,10 @@ export default function Planner() {
         </div>
       </div>
 
-      <h4 className="mb-3">Seleccioná los cortes</h4>
+      {/* <h4 className="mb-3">Seleccioná los cortes</h4> */}
 
       {cortesPorCategoria.map(({ categoria, items }) => (
-        <div key={categoria} className="mb-4">
+        <div key={categoria} className="mt-5 mb-4">
           <h5 className="text-capitalize mb-3">
             {categoria.replace("_", " ")}
           </h5>
