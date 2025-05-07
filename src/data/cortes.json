@@ -38,21 +38,40 @@
       "nombre": "Mollejas de garganta",
       "fuego": "medio",
       "tiempo": "50 min",
-      "tips": "25 min de cada lado. Marinar con leche o caldo. Salar, poner limón cuando la giramos",
+      "pasos": [
+        "Marinar con leche o caldo",
+        "Cocinar 25 min",
+        "Giramos",
+        "Cocinar 25 min",
+        "Poner sal y limón"
+      ],
+      "tips": "25 min de cada lado. . ",
       "imagen": "mollejas-de-garganta.png"
     },
     {
       "nombre": "Riñón",
       "fuego": "alto",
       "tiempo": "20 min",
-      "tips": "10 min de cada lado. Marinar en agua y vinagre o vino blanco 2 hs, retirar la tela y la grasa dura, cortar en rodajas, hacerlo a la plancha, previamente enmantecada",
+      "pasos": [
+        "Marinar en agua y vinagre o vino blanco 2 hs",
+        "Precalentar la plancha",
+        "Retirar la tela y la grasa dura",
+        "Hacerlo a la plancha, previamente enmantecada"
+      ],
+      "tips": "10 min de cada lado. ",
       "imagen": "rinon.png"
     },
     {
       "nombre": "Chinchulines",
       "fuego": "alto",
-      "tiempo": "40 min",
-      "tips": "25 min de un lado, 20 min del otro. Que sean rosados, no verdes ni negros. Retirarle un poco de grasa y cortarlos en orejas. Ponerle limón en la mesa",
+      "tiempo": "45 min",
+      "pasos": [
+        "Retirarle un poco de grasa",
+        "Cortarlos en \"orejas\"",
+        "Cocinarlos",
+        "Ponerle limon en la mesa"
+      ],
+      "tips": "25 min de un lado, 20 min del otro. Que sean rosados, no verdes ni negros.",
       "imagen": "chinchulines.png"
     }
   ],

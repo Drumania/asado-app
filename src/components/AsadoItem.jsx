@@ -27,7 +27,10 @@ export default function AsadoItem({ item }) {
         )}
 
         {item.pasos && (
-          <ul className="mb-0 ps-3">
+          <ul
+            className="mb-0 mt-3 pt-3 ps-3"
+            style={{ borderTop: "1px solid black" }}
+          >
             {item.pasos.map((paso, i) => (
               <li key={i}>
                 <span style={{ fontWeight: "bold", marginRight: "0.5rem" }}>
