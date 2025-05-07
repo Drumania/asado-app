@@ -1,0 +1,27 @@
+[
+  {
+    "id": "clasico_familiar",
+    "title": "Clásico Familiar",
+    "description": "Asado de tira + vacío + chorizo + morcilla + provoleta",
+    "distribution": {
+      "asado_tira": 0.5,
+      "vacio": 0.2,
+      "chorizo": 0.1,
+      "morcilla": 0.1,
+      "provoleta": 0.1
+    }
+  },
+  {
+    "id": "achuras_amigos",
+    "title": "Achuras & Amigos",
+    "description": "Vacío + entraña + matambre + mollejas + chorizo + morcilla",
+    "distribution": {
+      "vacio": 0.33,
+      "entrana": 0.23,
+      "matambre": 0.17,
+      "mollejas": 0.1,
+      "chorizo": 0.09,
+      "morcilla": 0.08
+    }
+  }
+]

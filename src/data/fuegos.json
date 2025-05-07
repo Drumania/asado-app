@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bajo",
+    "title": "Fuego Bajo",
+    "img": "/img/fuego-bajo.png",
+    "desc": "Podés sostener la mano sobre la parrilla a 15 cm durante <strong>11 segundos</strong>"
+  },
+  {
+    "id": "medio",
+    "title": "Fuego Medio",
+    "img": "/img/fuego-medio.png",
+    "desc": "Podés sostener la mano sobre la parrilla a 15 cm durante <strong>9 segundos</strong>"
+  },
+  {
+    "id": "alto",
+    "title": "Fuego Alto",
+    "img": "/img/fuego-alto.png",
+    "desc": "Podés sostener la mano sobre la parrilla a 15 cm durante <strong>5 segundos</strong>"
+  },
+  {
+    "id": "indirecto",
+    "title": "Fuego Indirecto",
+    "img": "/img/fuego-indirecto.png",
+    "desc": "Se logra corriendo las brasas y dejando un hueco. El calor llega de costado. Útil para cocción lenta sin quemar"
+  }
+]

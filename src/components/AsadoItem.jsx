@@ -1,8 +1,13 @@
+import { useState } from "react";
+import fireTypes from "@/data/fuegos.json";
+
 export default function AsadoItem({ item }) {
   const tipoFuego = item.fuego.toLowerCase().replace(/[^a-z]/g, "");
+  const fuegoData = fireTypes.find((f) => f.id === tipoFuego);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <div className="row align-items-center py-3 asado-item">
+    <div className="row align-items-center py-3 asado-item position-relative">
       <div className="col-12 col-lg-3 text-center">
         <img
           src={`/img/${item.imagen}`}
@@ -43,12 +48,27 @@ export default function AsadoItem({ item }) {
         )}
       </div>
 
-      <div className="col-12 col-lg-3 text-center">
-        <img
-          src={`/img/fuego-${tipoFuego}.png`}
-          alt={item.fuego}
-          style={{ maxHeight: "140px" }}
-        />
+      <div className="col-12 col-lg-3 text-center position-relative">
+        <div
+          className="tooltip-wrapper"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+          onClick={() => setShowTooltip(!showTooltip)} // para mobile
+          style={{ display: "inline-block", position: "relative" }}
+        >
+          <img
+            src={`/img/fuego-${tipoFuego}.png`}
+            alt={item.fuego}
+            style={{ maxHeight: "140px", cursor: "pointer" }}
+          />
+
+          {showTooltip && fuegoData && (
+            <div className="custom-tooltip">
+              <strong>{fuegoData.title}</strong>
+              <div dangerouslySetInnerHTML={{ __html: fuegoData.desc }} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

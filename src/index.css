@@ -75,7 +75,13 @@ body {
 }
 
 h1 {
-  font-size: clamp(3rem, 10vw, 12vw);
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 12vw);
+  white-space: nowrap;
+  line-height: 1.1;
+  margin: 0 auto;
 }
 
 .custom-tabs {
@@ -93,6 +99,11 @@ h1 {
 
   & .ct-nav-item .nav-link.active {
     font-weight: bold;
+  }
+
+  & .ct-nav-item .nav-link.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }
 
@@ -120,6 +131,27 @@ h1 {
   border-radius: 10px;
   padding: 5px 10px;
   display: inline-block;
+}
+
+.cs-border-bottom {
+  border-bottom: 2px solid var(--black-color);
+}
+
+.cs-border-bottom-dashed {
+  border-bottom: 1px dashed var(--black-color);
+}
+
+.selected-item {
+  background-color: #d37747;
+  color: var(--white-color) !important;
+
+  & .text-muted {
+    color: var(--white-color) !important;
+  }
+}
+
+.nav-item {
+  color: var(--black-color) !important;
 }
 
 .asado-img {
@@ -152,10 +184,85 @@ h1 {
   filter: hue-rotate(-40deg) brightness(1.4);
 }
 
+.title-fit {
+  font-size: clamp(2rem, 10vw, 6rem);
+}
+
+.table img {
+  max-height: 120px;
+  object-fit: cover;
+}
+
+.custom-tooltip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background: #111;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  white-space: normal;
+  width: 220px;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0.95;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-tooltip strong {
+  color: #ffcc70;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.tooltip-wrapper {
+  position: relative;
+}
+
 @media (max-width: 576px) {
   .custom-tabs .ct-nav-item {
     font-size: 1.1rem;
     line-height: 120%;
     padding: 10px 0;
   }
+}
+
+/* Checkbox fancy oscuro */
+.custom-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked {
+  background-color: #000;
+}
+
+.custom-checkbox input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 8px;
+  width: 10px;
+  height: 25px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked::before {
+  opacity: 1;
 }
