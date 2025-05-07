@@ -19,17 +19,16 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navMain">
           <ul className="navbar-nav ms-auto gap-lg-5">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   "nav-link" + (isActive ? " active" : "")
                 }
-                end /* marca activo solo en la raíz exacta */
               >
                 Inicio
               </NavLink>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <NavLink

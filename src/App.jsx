@@ -14,7 +14,7 @@ export default function App() {
       {/* Contenido de cada página */}
       <div className="container py-4">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Planner />} />
           <Route path="/planner" element={<Planner />} />
           <Route path="/cortes" element={<Cortes />} />
           <Route path="/fuego" element={<Fire />} />
