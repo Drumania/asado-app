@@ -296,3 +296,32 @@ h1 {
   background-color: transparent;
   border: none;
 }
+
+.timeline li {
+  border-left: 3px solid #ddd;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: #ff5722;
+  border-radius: 50%;
+}
+
+.step-number {
+  background-color: #ff5722;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

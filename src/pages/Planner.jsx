@@ -15,9 +15,18 @@ export default function Planner() {
   const [adultos, setAdultos] = useState(5);
   const [ninos, setNinos] = useState(0);
   const [seleccionados, setSeleccionados] = useState([]);
+  const [horaComer, setHoraComer] = useState("21:00");
 
   const totalPersonas = PERSONA_EQUIVALENTE(adultos, ninos);
   const cortesPorCategoria = deflatCortesPorCategoria(cortesData);
+
+  const calcularHoraInicio = (horaComer, minutosAntes) => {
+    const [h, m] = horaComer.split(":").map(Number);
+    const fecha = new Date();
+    fecha.setHours(h);
+    fecha.setMinutes(m - minutosAntes);
+    return fecha.toTimeString().slice(0, 5); // HH:MM
+  };
 
   const toggleCorte = (nombre) => {
     setSeleccionados((prev) =>
@@ -39,6 +48,82 @@ export default function Planner() {
         totalKg: (totalGr / 1000).toFixed(2),
       };
     });
+
+  const generarLineaDeTiempo = () => {
+    const seleccionadosCortes = cortesPorCategoria
+      .flatMap(({ categoria, items }) =>
+        items
+          .filter((item) => seleccionados.includes(item.nombre))
+          .map((item) => {
+            const tiempo = item.pasos
+              ? item.pasos.reduce((acc, paso) => acc + extraerMinutos(paso), 0)
+              : item.tiempo
+              ? extraerMinutos(item.tiempo)
+              : 0;
+
+            let offsetSalida = 0;
+            if (categoria === "achuras") offsetSalida = 0;
+            else if (categoria === "coccion_rapida")
+              offsetSalida = -15; // salen después
+            else if (categoria === "coccion_lenta") offsetSalida = -30; // mucho después
+
+            const momentoMinutos = tiempo + offsetSalida;
+
+            const horaInicio = calcularHoraInicio(horaComer, momentoMinutos);
+            const horaSalida = calcularHoraInicio(horaComer, offsetSalida);
+
+            return {
+              nombre: item.nombre,
+              fuego: item.fuego,
+              imagen: item.imagen,
+              categoria,
+              tiempoCoccion: tiempo,
+              horaInicio,
+              horaSalida,
+            };
+          })
+      )
+      .sort((a, b) => a.horaInicio.localeCompare(b.horaInicio));
+
+    return seleccionados.length ? seleccionadosCortes : [];
+  };
+
+  const extraerMinutos = (texto) => {
+    let total = 0;
+
+    const hsMatch = texto.match(/(\d+(?:\.\d+)?)\s*hs/gi);
+    if (hsMatch) {
+      total +=
+        hsMatch.reduce(
+          (sum, str) => sum + parseFloat(str.replace(",", ".").match(/[\d.]+/)),
+          0
+        ) * 60;
+    }
+
+    const minMatch = texto.match(/(\d+)\s*min/gi);
+    if (minMatch) {
+      total += minMatch.reduce((sum, str) => sum + parseInt(str), 0);
+    }
+
+    return total;
+  };
+
+  const calcularTiempoTotalAsado = () => {
+    const seleccionadosCortes = cortesPorCategoria
+      .flatMap(({ items }) => items)
+      .filter((item) => seleccionados.includes(item.nombre));
+
+    const tiempos = seleccionadosCortes.map((item) => {
+      if (item.pasos) {
+        return item.pasos.reduce((acc, paso) => acc + extraerMinutos(paso), 0);
+      } else if (item.tiempo) {
+        return extraerMinutos(item.tiempo);
+      }
+      return 0;
+    });
+
+    return Math.max(...tiempos, 0);
+  };
 
   return (
     <section className="container py-4">
@@ -173,6 +258,63 @@ export default function Planner() {
           </ul>
         </div>
       )}
+
+      <div className="mb-4">
+        <label className="form-label">🕒 ¿A qué hora querés comer?</label>
+        <input
+          type="time"
+          className="form-control"
+          value={horaComer}
+          onChange={(e) => setHoraComer(e.target.value)}
+        />
+      </div>
+
+      <div className="mt-5">
+        <h4>🧠 Plan de Parrilla con Hora Real</h4>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>🥩 Producto</th>
+              <th>🔥 Entra la parrila</th>
+
+              <th>🔥 Fuego</th>
+              <th>🍽️ Sale de la parrilla</th>
+            </tr>
+          </thead>
+          <tbody>
+            {generarLineaDeTiempo().map((item, i) => (
+              <tr key={i}>
+                <td className="d-flex align-items-center gap-2">
+                  <img
+                    src={`/img/${item.imagen}`}
+                    alt={item.nombre}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      objectFit: "cover",
+                      borderRadius: 6,
+                    }}
+                  />
+                  {item.nombre}
+                </td>
+
+                <td>{item.horaInicio}</td>
+
+                <td className="text-capitalize">{item.fuego}</td>
+                <td>{item.horaSalida}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-4">
+        <h5>⏳ Tiempo total estimado:</h5>
+        <p>
+          {calcularTiempoTotalAsado()} minutos (
+          {(calcularTiempoTotalAsado() / 60).toFixed(1)} horas)
+        </p>
+      </div>
     </section>
   );
 }
