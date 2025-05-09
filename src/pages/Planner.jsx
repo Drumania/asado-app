@@ -77,6 +77,12 @@ export default function Planner() {
               fuego: item.fuego,
               imagen: item.imagen,
               categoria,
+              tipoPlato:
+                categoria === "achuras"
+                  ? "Entrada"
+                  : categoria === "coccion_rapida"
+                  ? "Primer plato"
+                  : "Plato principal",
               tiempoCoccion: tiempo,
               horaInicio,
               horaSalida,
@@ -123,6 +129,12 @@ export default function Planner() {
     });
 
     return Math.max(...tiempos, 0);
+  };
+
+  const obtenerHoraEncendidoFuego = () => {
+    const linea = generarLineaDeTiempo();
+    if (!linea.length) return null;
+    return calcularHoraInicio(linea[0].horaInicio, 45);
   };
 
   return (
@@ -269,52 +281,71 @@ export default function Planner() {
         />
       </div>
 
-      <div className="mt-5">
-        <h4>🧠 Plan de Parrilla con Hora Real</h4>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>🥩 Producto</th>
-              <th>🔥 Entra la parrila</th>
-
-              <th>🔥 Fuego</th>
-              <th>🍽️ Sale de la parrilla</th>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>🥩 Producto</th>
+            <th>🔥 Entra a la parrilla</th>
+            <th>🔥 Fuego</th>
+            <th>🍽️ Sale de la parrilla</th>
+            <th>🍽️ Plato</th>
+          </tr>
+        </thead>
+        <tbody>
+          {obtenerHoraEncendidoFuego() && (
+            <tr className="table-warning  text-center">
+              <td colSpan="5" className="py-4 fw-bold">
+                Encender el fuego con leña y carbón a las{" "}
+                <strong>{obtenerHoraEncendidoFuego()}</strong> para tener brasas
+                listas.
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {generarLineaDeTiempo().map((item, i) => (
-              <tr key={i}>
-                <td className="d-flex align-items-center gap-2">
-                  <img
-                    src={`/img/${item.imagen}`}
-                    alt={item.nombre}
-                    style={{
-                      width: 40,
-                      height: 40,
-                      objectFit: "cover",
-                      borderRadius: 6,
-                    }}
-                  />
-                  {item.nombre}
-                </td>
+          )}
+          {generarLineaDeTiempo().map((item, i) => (
+            <tr key={i}>
+              <td className="d-flex align-items-center gap-2">
+                <img
+                  src={`/img/${item.imagen}`}
+                  alt={item.nombre}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    objectFit: "cover",
+                    borderRadius: 6,
+                  }}
+                />
+                {item.nombre}
+              </td>
+              <td>{item.horaInicio}</td>
+              <td className="text-capitalize">{item.fuego}</td>
+              <td>{item.horaSalida}</td>
+              <td>
+                <span
+                  className={`badge-plato ${
+                    item.tipoPlato === "Entrada"
+                      ? "badge-entrada"
+                      : item.tipoPlato === "Primer plato"
+                      ? "badge-primer"
+                      : "badge-principal"
+                  }`}
+                >
+                  {item.tipoPlato}
+                </span>
+              </td>
+            </tr>
+          ))}
 
-                <td>{item.horaInicio}</td>
-
-                <td className="text-capitalize">{item.fuego}</td>
-                <td>{item.horaSalida}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="mt-4">
-        <h5>⏳ Tiempo total estimado:</h5>
-        <p>
-          {calcularTiempoTotalAsado()} minutos (
-          {(calcularTiempoTotalAsado() / 60).toFixed(1)} horas)
-        </p>
-      </div>
+          <tr className="table-warning  text-center">
+            <td colSpan="5" className="py-4 fw-bold">
+              Tiempo total estimado:
+              <p>
+                {calcularTiempoTotalAsado()} minutos (
+                {(calcularTiempoTotalAsado() / 60).toFixed(1)} horas)
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   );
 }
