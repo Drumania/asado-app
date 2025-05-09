@@ -115,11 +115,11 @@ export default function Planner() {
   };
 
   const generarTextoLista = () => {
-    let mensaje = "🛒 Lista para el asado:\n\n";
+    let mensaje = "Lista para el asado:\n\n";
     resultados.forEach((item) => {
       mensaje += `• ${item.nombre}: ${item.totalKg} kg\n`;
     });
-    mensaje += `\n🔥 ¡Que no falte el fuego!`;
+    mensaje += `\n ¡Que no falte el fuego!`;
     return mensaje;
   };
 
