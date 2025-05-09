@@ -114,6 +114,15 @@ export default function Planner() {
     return total;
   };
 
+  const generarTextoLista = () => {
+    let mensaje = "🛒 Lista para el asado:\n\n";
+    resultados.forEach((item) => {
+      mensaje += `• ${item.nombre}: ${item.totalKg} kg\n`;
+    });
+    mensaje += `\n🔥 ¡Que no falte el fuego!`;
+    return mensaje;
+  };
+
   const calcularTiempoTotalAsado = () => {
     const seleccionadosCortes = cortesPorCategoria
       .flatMap(({ items }) => items)
@@ -268,6 +277,16 @@ export default function Planner() {
               </li>
             ))}
           </ul>
+          <button
+            className="btn btn-success ms-2 mb-3"
+            onClick={() => {
+              const texto = generarTextoLista();
+              const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+              window.open(url, "_blank");
+            }}
+          >
+            📲 Enviar por WhatsApp
+          </button>
         </div>
       )}
 
