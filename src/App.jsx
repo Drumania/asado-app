@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
 import Planner from "./pages/Planner";
 import NotFound from "./pages/NotFound";
 import Cortes from "./pages/Cortes";
 import Fire from "./pages/Fire";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
       {/* Contenido de cada página */}
       <div className="container py-4">
         <Routes>
-          <Route path="/" element={<Planner />} />
+          <Route path="/" element={<Home />} />
           <Route path="/planner" element={<Planner />} />
           <Route path="/cortes" element={<Cortes />} />
           <Route path="/fuego" element={<Fire />} />
