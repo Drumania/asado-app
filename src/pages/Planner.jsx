@@ -146,10 +146,32 @@ export default function Planner() {
     return calcularHoraInicio(linea[0].horaInicio, 45);
   };
 
-  return (
-    <section className="container py-4">
-      <h1 className="pb-4">Calculador de Asado</h1>
+  const  guardarAsado = () => {
+    const nombre = prompt('Ingresa un nombre para este asado:');
+    if (nombre) {
+      const nuevoAsado = {
+        nombre,
+        fecha: new Date().toISOString(),
+        cortes: resultados, // Cambiado de cortesSeleccionados a resultados
+        horaComer,
+        personas: {
+          adultos,
+          ninos
+        }
+      };
+  
+      const asadosGuardados = JSON.parse(localStorage.getItem('asados') || '[]');
+      asadosGuardados.push(nuevoAsado);
+      localStorage.setItem('asados', JSON.stringify(asadosGuardados));
+      
+      alert('¡Asado guardado con éxito!');
+    }
+  };
 
+  return (
+    <div className="container">
+      <h1 className="pb-4">Calculador de Asado</h1>
+  
       <div className="row g-3 mb-5">
         <div className="col-6">
           <label className="form-label d-flex align-items-center gap-2">
@@ -179,7 +201,7 @@ export default function Planner() {
             </button>
           </div>
         </div>
-
+  
         <div className="col-6">
           <label className="form-label d-flex align-items-center gap-2">
             <span style={{ transform: "scale(0.8)", display: "inline-block" }}>
@@ -212,9 +234,9 @@ export default function Planner() {
           </div>
         </div>
       </div>
-
+  
       {/* <h4 className="mb-3">Seleccioná los cortes</h4> */}
-
+  
       {cortesPorCategoria.map(({ categoria, items }) => (
         <div key={categoria} className="mt-5 mb-4">
           <h5 className="text-capitalize mb-3">
@@ -266,7 +288,7 @@ export default function Planner() {
           </div>
         </div>
       ))}
-
+  
       {resultados.length > 0 && (
         <div className="mt-5">
           <h4>Resultado</h4>
@@ -277,19 +299,27 @@ export default function Planner() {
               </li>
             ))}
           </ul>
-          <button
-            className="btn btn-success ms-2 mb-3"
-            onClick={() => {
-              const texto = generarTextoLista();
-              const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
-              window.open(url, "_blank");
-            }}
-          >
-            📲 Enviar por WhatsApp
-          </button>
+          <div className="mt-3 mb-3">
+            <button
+              className="btn btn-success me-2"
+              onClick={() => {
+                const texto = generarTextoLista();
+                const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+                window.open(url, "_blank");
+              }}
+            >
+              📲 Enviar por WhatsApp
+            </button>
+            <button
+              onClick={guardarAsado}
+              className="btn btn-primary"
+            >
+              💾 Guardar Asado
+            </button>
+          </div>
         </div>
       )}
-
+  
       <div className="mb-4">
         <label className="form-label">🕒 ¿A qué hora querés comer?</label>
         <input
@@ -299,7 +329,7 @@ export default function Planner() {
           onChange={(e) => setHoraComer(e.target.value)}
         />
       </div>
-
+  
       <table className="table">
         <thead>
           <tr>
@@ -353,7 +383,7 @@ export default function Planner() {
               </td>
             </tr>
           ))}
-
+  
           <tr className="table-warning  text-center">
             <td colSpan="5" className="py-4 fw-bold">
               Tiempo total estimado:
@@ -365,10 +395,6 @@ export default function Planner() {
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   );
-}
-
-{
-  /* <h1 className="text-center text-uppercase mb-4">Calculador de Asado</h1> */
 }
