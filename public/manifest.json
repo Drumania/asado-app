@@ -3,8 +3,8 @@
   "short_name": "Asado",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f5e9d4",
-  "theme_color": "#f5e9d4",
+  "background_color": "#1A1208",
+  "theme_color": "#1A1208",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
