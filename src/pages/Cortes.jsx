@@ -5,68 +5,58 @@ import AsadoItem from "@/components/AsadoItem";
 
 const CATEGORIES = [
   { key: "achuras", label: "Achuras" },
-  { key: "coccion_rapida", label: "Cocción rápida" },
-  { key: "coccion_lenta", label: "Cocción lenta" },
+  { key: "coccion_rapida", label: "Cocción Rápida" },
+  { key: "coccion_lenta", label: "Cocción Lenta" },
   { key: "verduras", label: "Verduras" },
 ];
 
 export default function Cortes() {
-  // Si la primera categoría no tiene data, busca la siguiente que sí
   const firstActive = CATEGORIES.find(
     (c) => (cortesData[c.key] ?? []).length > 0
   )?.key;
   const [active, setActive] = useState(firstActive);
 
-  const renderItems = (items) =>
-    items.map((item, i) => (
-      <div key={i} className="col-12">
-        <AsadoItem item={item} />
-      </div>
-    ));
-
   return (
-    <section className="container py-4">
-      <h1 className="title-fit text-center mb-4 text-uppercase">Cortes</h1>
+    <div className="page-container">
+      <div className="page-header">
+        <h1 className="page-title">Cortes</h1>
+        <p className="page-subtitle">Guía de preparación paso a paso</p>
+      </div>
 
-      {/* Navegación de pestañas */}
-      <ul className="custom-tabs">
+      {/* Pill tabs */}
+      <div className="pill-tabs" role="tablist">
         {CATEGORIES.map(({ key, label }) => {
           const hasContent = (cortesData[key] ?? []).length > 0;
           return (
-            <li className="ct-nav-item" key={key}>
-              <button
-                className={
-                  "nav-link d-flex align-items-center" +
-                  (active === key ? " active" : "") +
-                  (!hasContent ? " disabled position-relative" : "")
-                }
-                onClick={() => hasContent && setActive(key)}
-                type="button"
-              >
-                {label}
-                {!hasContent && <span className="cs-badge">Próx.</span>}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* Contenido */}
-      <div className="tab-content mt-4">
-        {CATEGORIES.map(({ key }) => {
-          const visible = active === key;
-          return (
-            <div
+            <button
               key={key}
-              className={`tab-pane fade${visible ? " show active" : ""}`}
+              role="tab"
+              aria-selected={active === key}
+              className={"pill-tab" + (active === key ? " active" : "")}
+              disabled={!hasContent}
+              onClick={() => hasContent && setActive(key)}
             >
-              <div className="row g-3">
-                {visible && renderItems(cortesData[key] ?? [])}
-              </div>
-            </div>
+              {label}
+              {!hasContent && (
+                <span className="pill-tab__badge">Próx.</span>
+              )}
+            </button>
           );
         })}
       </div>
-    </section>
+
+      {/* Content */}
+      <div className="card" style={{ overflow: "hidden" }}>
+        {CATEGORIES.map(({ key }) =>
+          active === key ? (
+            <div key={key} role="tabpanel">
+              {(cortesData[key] ?? []).map((item, i) => (
+                <AsadoItem key={i} item={item} />
+              ))}
+            </div>
+          ) : null
+        )}
+      </div>
+    </div>
   );
 }

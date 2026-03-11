@@ -10,16 +10,12 @@ export default function App() {
   return (
     <>
       <Navbar />
-
-      {/* Contenido de cada página */}
-      <div className="container py-4">
+      <div className="app-layout">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/planner" element={<Planner />} />
           <Route path="/cortes" element={<Cortes />} />
           <Route path="/fuego" element={<Fire />} />
-
-          {/* 404 catch‑all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
